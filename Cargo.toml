@@ -2,7 +2,23 @@
 name = "rust_mcu_project"
 version = "0.1.0"
 edition = "2021"
+authors = ["Bence <szabo.bence1103@gmail.com>"]
+categories = ["embedded", "no-std"]
+repository = "https://github.com/szabobenyo/rust_mcu_project"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+# --target thumbv6m-none-eabi
+# openocd -f interface/stlink.cfg -f target/stm32l0.cfg
 
 [dependencies]
+cortex-m = "0.7.7"
+cortex-m-rt = "0.7.3"
+cortex-m-semihosting = "0.5.0"
+panic-semihosting = "0.6.0"
+panic-itm = "0.4.2"
+panic-halt = "0.2.0"
+switch-hal = "0.4.0"
+svd2rust = "0.29.0"
+
+[dependencies.stm32l0xx-hal]
+version = "0.10.0"
+features = ["mcu-STM32L071KBTx", "rt", "disable-linker-script"]
