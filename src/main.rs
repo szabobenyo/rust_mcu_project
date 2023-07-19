@@ -25,7 +25,7 @@ fn main() -> ! {
     let gpioa = dp.GPIOA.split(&mut rcc);
 
     // Configure PA1 as output.
-    let mut led = gpioa.pa1.into_push_pull_output();
+    let mut led = gpioa.pa5.into_push_pull_output();
 
     // Get the delay provider.
     let mut delay = cp.SYST.delay(rcc.clocks);
