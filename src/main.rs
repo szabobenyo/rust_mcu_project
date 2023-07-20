@@ -24,17 +24,17 @@ fn main() -> ! {
     // the RCC register.
     let gpioa = dp.GPIOA.split(&mut rcc);
 
-    // Configure PA1 as output.
-    let mut led = gpioa.pa5.into_push_pull_output();
+    // Configure LED2 as output.
+    let mut led2 = gpioa.pa5.into_push_pull_output();
 
     // Get the delay provider.
     let mut delay = cp.SYST.delay(rcc.clocks);
 
     loop {
-        led.set_high().unwrap();
-        delay.delay_ms(500_u16);
+        led2.set_high().unwrap();
+        delay.delay_ms(1000_u16);
 
-        led.set_low().unwrap();
+        led2.set_low().unwrap();
         delay.delay_ms(500_u16);
     }
 }

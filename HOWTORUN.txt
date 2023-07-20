@@ -1,0 +1,13 @@
+To run the program:
+- You need two terminal window to see clearly the magic.
+Call them as terminal_one and terminal_two.
+So, when your code is ready, type into terminal_one:
+    - cargo build --target thumbv6m-none-eabi
+Meanwhile, open the gateway at terminal_two with the command:
+    - openocd -f interface/stlink.cfg -f target/stm32l0.cfg
+Okay, back to terminal_one:
+    - cargo run (if you have a well configured openocd.gbd file, you have nothing more to do)
+Monitor the data received from the device on terminal_two.
+
+To stop/terminate your program, just use the combination of CTRL + C.
+Type 'q' on terminal_one if it's needed. Then CTRL + C 
