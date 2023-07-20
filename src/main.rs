@@ -32,9 +32,9 @@ fn main() -> ! {
 
     loop {
         led2.set_high().unwrap();
-        delay.delay_ms(1000_u16);
+        delay.delay_ms(300_u16);
 
         led2.set_low().unwrap();
-        delay.delay_ms(500_u16);
+        delay.delay_ms(300_u16);
     }
 }
