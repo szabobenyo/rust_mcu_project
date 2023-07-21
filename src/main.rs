@@ -6,22 +6,17 @@ extern crate panic_halt;
 extern crate stm32l0;
 
 use cortex_m_rt::entry;
-use cortex_m_semihosting::hprintln;
-//use stm32l0::stm32l0x0;
 use stm32l0xx_hal::{pac, prelude::*, rcc::Config};
 
 #[entry]
 fn main() -> ! {
-    hprintln!("LED lights are magic * * *");
-
-    let dp = pac::Peripherals::take().unwrap();
     let cp = cortex_m::Peripherals::take().unwrap();
+    let dp = pac::Peripherals::take().unwrap();
 
     // Configure the clock.
     let mut rcc = dp.RCC.freeze(Config::hsi16());
 
-    // Acquire the GPIOA peripheral. This also enables the clock for GPIOA in
-    // the RCC register.
+    // Acquire the GPIOA peripheral. This also enables the clock for GPIOA in the RCC register.
     let gpioa = dp.GPIOA.split(&mut rcc);
 
     // Configure LED2 as output.
