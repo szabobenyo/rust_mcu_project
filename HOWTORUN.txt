@@ -1,13 +1,20 @@
 To run the program:
-- You need two terminal window to see clearly the magic.
-Call them as terminal_one and terminal_two.
+- You need two terminal windows to see clearly the magic.
+I call them as terminal_one and terminal_two.
 So, when your code is ready, type into terminal_one:
     - cargo build --target thumbv6m-none-eabi
 Meanwhile, open the gateway at terminal_two with the command:
-    - openocd -f interface/stlink.cfg -f target/stm32l0.cfg
+    - openocd -s C:\share\scripts -f interface/stlink.cfg -f target/stm32l0.cfg
 Okay, back to terminal_one:
-    - cargo run (if you have a well configured openocd.gbd file, you have nothing more to do)
+    - cargo run (if you have a well configured openocd.gbd file, you have nothing more to do)*
 Monitor the data received from the device on terminal_two.
 
 To stop/terminate your program, just use the combination of CTRL + C.
-Type 'q' on terminal_one if it's needed. Then CTRL + C 
+Type 'q' on terminal_one if it's needed. Then CTRL + C
+
+*Important commands flash due to (if you don't have a well configured openocd.gdb file).
+- openocd -s C:\share\scripts -f interface/stlink.cfg -f target/stm32l0.cfg
+- arm-none-eabi-gdb -q -ex "target extended-remote :3333" target\thumbv6m-none-eabi\debug\rust_mcu_project
+- monitor arm semihosting enable
+- load
+- continue
