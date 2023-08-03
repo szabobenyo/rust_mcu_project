@@ -28,5 +28,5 @@ version = "0.10.0"
 features = ["mcu-STM32L010RBTx","stm32l0x1","rt", "disable-linker-script"]
 # mcu-STM32L010RBTx = ["lqfp64", "io-STM32L071", "eeprom-512", "flash-128", "ram-20"]
 
-[build.dependencies]
+[build-dependencies]
 cc = "1.0.79"
