@@ -7,15 +7,9 @@ extern crate stm32l0;
 
 use cortex_m_rt::entry;
 
-#[link(name = "doubler")]
-extern "C" {
-    fn doubler(x: i32) -> i32;
-}
-
 #[entry]
-unsafe fn main() -> ! {
-    let result = unsafe { doubler(5) };
+fn main() -> ! {
     loop {
-        cortex_m_semihosting::hprintln!("Doubler result: {}", result);
+        panic!("");
     }
 }

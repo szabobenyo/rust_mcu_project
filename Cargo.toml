@@ -1,6 +1,6 @@
 [package]
 name = "rust_mcu_project"
-version = "0.1.3"
+version = "0.1.4"
 edition = "2021"
 authors = ["Bence <szabo.bence1103@gmail.com>"]
 categories = ["embedded", "no-std"]
